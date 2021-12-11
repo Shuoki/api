@@ -1,0 +1,27 @@
+{
+  "name": "shapi",
+  "version": "0.0.1",
+  "description": "api for the project shuoki",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shuoki/api.git"
+  },
+  "keywords": [
+    "shapi"
+  ],
+  "author": "ShuokiTeam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shuoki/api/issues"
+  },
+  "homepage": "https://github.com/Shuoki/api#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^4.2.1"
+  }
+}
