@@ -1,17 +1,9 @@
 require('dotenv').config()
-var MongoClient = require('mongodb').MongoClient
-
-MongoClient.connect(process.env.DB_CONN, function(err, client) {
-    if(!err){
-        console.log('[LOG] БД подключена')
-    } else{
-        console.log(`[LOG] БД не была подключена из-за ошибки: ${err}`)
-    }
-})
 
 const express = require('express')
 const app = express()
-const port = process.env.PORT
+const path = require("path")
+const port = process.env.PORT || 3000
 
 function isAuthorized(req, res, next) {
     const auth = req.headers.authorization
@@ -30,11 +22,33 @@ function isAuthorized(req, res, next) {
     }
 }
 
-app.get('/', (req, res) => res.send('Метро Люблино работаем! Список заблокированных /blacklist/:id'))
+app.use('/', express.static(__dirname + '/site'))
 
-app.get('/blacklist/:id', isAuthorized, (req, res) => {
-    const id = req.params.id
-    res.send(`Привет ${id}`)
-
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/site/index.html'))
 })
+
+app.get('/api', (req, res) => res.send('На данный момент api находится в разработке'))
+
+app.get('/api/blacklist/:id', isAuthorized, (req, res) => {
+    const id = req.params.id
+    res.send(`В данный момент данный запрос находится в разработке`)
+})
+
+app.get('/api/developer', (req, res) => {
+    res.send('TheMisterSenpai | https://github.com/TheMisterSenpai | https://shuoki.top')
+})
+
+app.get('/mai', function (req, res) {
+    res.redirect('https://boticord.top/bot/802987390033330227')
+})
+
+app.get('/donate', function (req, res) {
+    res.redirect('https://qiwi.com/n/THEMISTERSENPAI')
+})
+
+app.get('/boticord', function (req, res) {
+    res.redirect(' https://boticord.top/?ref=mai')
+})
+
 app.listen(port, () => console.log(`[LOG] Сервер слушает порт ${port}`))

@@ -1,0 +1,35 @@
+img {
+    /* Высота и ширина */
+    width: 220px; 
+    height: 200px;
+
+    display: flex;
+
+    /* Радиус скругления */
+    border-radius: 100px; 
+    
+    /* Неоновая рамка */
+    -moz-box-shadow: 0px 0px 14px #EF8D8D; 
+    -webkit-box-shadow: 0px 0px 14px #EF8D8D; 
+    box-shadow: 0px 0px 14px #EF8D8D; margin: 15px;
+}
+img1{
+    width: 220px; 
+    height: 200px;
+}
+* {
+    /* Шрифт */
+    font-family: "Gill Sans", sans-serif;
+}
+a {
+    text-decoration: none;
+    color: rgb(135, 135, 135);
+    font-family: "Gill Sans", sans-serif;
+}
+
+h2 {
+    color: rgb(135, 135, 135)
+}
+body{
+    background-color: black;
+}
