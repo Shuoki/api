@@ -48,7 +48,7 @@ app.get('/donate', function (req, res) {
 })
 
 app.get('/boticord', function (req, res) {
-    res.redirect(' https://boticord.top/?ref=mai')
+    res.redirect('https://boticord.top/?ref=mai')
 })
 
 app.listen(port, () => console.log(`[LOG] Сервер слушает порт ${port}`))
