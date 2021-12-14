@@ -55,4 +55,8 @@ app.get('/sprintbit', function (req, res) {
     res.redirect('https://bots.server-discord.com/818020488210939915')
 })
 
+app.get('/sprintbook', function (req, res) {
+    res.redirect('https://www.youtube.com/c/SprintBook')
+})
+
 app.listen(port, () => console.log(`[LOG] Сервер слушает порт ${port}`))
