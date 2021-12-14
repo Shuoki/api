@@ -51,4 +51,8 @@ app.get('/boticord', function (req, res) {
     res.redirect('https://boticord.top/?ref=mai')
 })
 
+app.get('/sprintbit', function (req, res) {
+    res.redirect('https://bots.server-discord.com/818020488210939915')
+})
+
 app.listen(port, () => console.log(`[LOG] Сервер слушает порт ${port}`))
