@@ -59,4 +59,8 @@ app.get('/sprintbook', function (req, res) {
     res.redirect('https://www.youtube.com/c/SprintBook')
 })
 
+app.get('/hack', function (req, res) {
+    res.redirect('https://youtu.be/dQw4w9WgXcQ')
+})
+
 app.listen(port, () => console.log(`[LOG] Сервер слушает порт ${port}`))
