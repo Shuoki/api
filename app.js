@@ -1,66 +1,53 @@
-require('dotenv').config()
+require('dotenv').config();
+const shortLinks = [
+    { code: "mai", link: "https://boticord.top/bot/802987390033330227" },
+    { code: "donate", link: "https://qiwi.com/n/THEMISTERSENPAI" },
+    { code: "boticord", link: "https://boticord.top/?ref=mai" },
+    { code: "sprintbit", link: "https://bots.server-discord.com/818020488210939915" },
+    { code: "sprintbook", link: "https://www.youtube.com/c/SprintBook" },
+    { code: "hack", link: "https://youtu.be/dQw4w9WgXcQ" }
+];
 
-const express = require('express')
-const app = express()
-const path = require("path")
-const port = process.env.PORT || 3000
+const express = require('express');
+const app = express();
+const path = require("path");
+const port = process.env.PORT || 3000;
 
 function isAuthorized(req, res, next) {
-    const auth = req.headers.authorization
+    const auth = req.headers.authorization;
 
     if (auth === process.env.API_TOKEN) {
-        next()
-    } else{
-        res.status(401)
+        next();
+    } else {
         const err = [
             {
                 code: 401,
                 reason: "Доступ запрещен"
             }
-        ]
-        res.json(err)
+        ];
+        return res.status(401).json(err);
     }
 }
 
-app.use('/', express.static(__dirname + '/site'))
-
+app.use('/', express.static(__dirname + '/site'));
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname + '/site/index.html'))
-})
+});
 
-app.get('/api', (req, res) => res.send('На данный момент api находится в разработке'))
-
+app.get('/api', (req, res) => res.send('На данный момент api находится в разработке'));
 app.get('/api/blacklist/:id', isAuthorized, (req, res) => {
     const id = req.params.id
     res.send(`В данный момент данный запрос находится в разработке`)
-})
+});
 
 app.get('/api/developer', (req, res) => {
     res.send('TheMisterSenpai | https://github.com/TheMisterSenpai | https://shuoki.top')
-})
+});
 
-app.get('/mai', function (req, res) {
-    res.redirect('https://boticord.top/bot/802987390033330227')
-})
+app.get('/:shortCode', function (req, res) {
+    let link = shortLinks.find(link => link.code == req.params.shortCode);
+    if (!link) return res.status(404).send('404 Not Found');
+    return res.redirect(link.link);
+});
 
-app.get('/donate', function (req, res) {
-    res.redirect('https://qiwi.com/n/THEMISTERSENPAI')
-})
-
-app.get('/boticord', function (req, res) {
-    res.redirect('https://boticord.top/?ref=mai')
-})
-
-app.get('/sprintbit', function (req, res) {
-    res.redirect('https://bots.server-discord.com/818020488210939915')
-})
-
-app.get('/sprintbook', function (req, res) {
-    res.redirect('https://www.youtube.com/c/SprintBook')
-})
-
-app.get('/hack', function (req, res) {
-    res.redirect('https://youtu.be/dQw4w9WgXcQ')
-})
-
-app.listen(port, () => console.log(`[LOG] Сервер слушает порт ${port}`))
+app.listen(port, () => console.log(`[LOG] Сервер слушает порт ${port}`));
