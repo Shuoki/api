@@ -1,7 +1,7 @@
 require('dotenv').config();
 const shortLinks = [
     { code: "mai", link: "https://boticord.top/bot/802987390033330227" },
-    { code: "donate", link: "https://qiwi.com/n/THEMISTERSENPAI" },
+    { code: "donate", link: "https://sobe.ru/na/makaroni" },
     { code: "boticord", link: "https://boticord.top/?ref=mai" },
     { code: "sprintbit", link: "https://bots.server-discord.com/818020488210939915" },
     { code: "sprintbook", link: "https://www.youtube.com/c/SprintBook" },
