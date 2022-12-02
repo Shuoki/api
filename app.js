@@ -3,7 +3,8 @@ const shortLinks = [
     { code: "mai", link: "https://boticord.top/bot/802987390033330227" },
     { code: "donate", link: "https://sobe.ru/na/makaroni" },
     { code: "boticord", link: "https://boticord.top/?ref=mai" },
-    { code: "hack", link: "https://youtu.be/dQw4w9WgXcQ" }
+    { code: "hack", link: "https://youtu.be/dQw4w9WgXcQ" },
+    { code: "swdlox", link: "https://shuoki.top/swd" }
 ];
 
 const express = require('express');
